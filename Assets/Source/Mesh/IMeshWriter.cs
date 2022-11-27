@@ -1,4 +1,4 @@
-﻿public interface IMeshElement
+﻿public interface IMeshWriter
 {
     void Write(IMeshStream stream);
 }

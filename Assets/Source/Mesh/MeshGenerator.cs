@@ -1,12 +1,9 @@
 ﻿public static class MeshGenerator
 {
-    public static void GenerateMesh(IMeshInfoProvider infoProvider, IMeshBuilder builder)
+    public static void GenerateMesh(IMeshDescriptor descriptor, IMeshWriter writer, IMeshBuilder builder)
     {
         MeshStream stream = new MeshStream();
-        foreach (var element in infoProvider.EnumerateElements())
-        {
-            element.Write(stream);
-        }
-        stream.Build(infoProvider.Descriptor, builder);
+        writer.Write(stream);
+        stream.Build(descriptor, builder);
     }
 }

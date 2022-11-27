@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-public interface IMazeBuilder
+public interface IMazeBuilder : IMazeWriter
+{
+    void BuildMaze();
+}
+public interface IMazeWriter
 {
     Vector2Int Size { get; }
-    void BuildCell(MazeCellInfo cellInfo);
+    void WriteCell(MazeCellInfo cellInfo);
 }

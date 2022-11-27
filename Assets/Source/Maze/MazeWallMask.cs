@@ -1,5 +1,4 @@
-﻿[System.Flags]
-public enum MazeWallMask
+﻿public enum MazeWallMask : int
 {
     None = 0,
     Left = 1,

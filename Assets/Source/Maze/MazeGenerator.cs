@@ -1,19 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public sealed class MazeGenerator : MonoBehaviour
+public abstract class MazeGenerator : MonoBehaviour
 {
+    protected abstract IMazePattern CreatePattern();
+    protected abstract IMazeBuilder CreateBuilder();
 
-}
-public sealed class StandardMazeBuilder : IMazeBuilder
-{
-    public StandardMazeBuilder(Vector2Int size)
+    void Start()
     {
-        Size = size;
-    }
-
-    public Vector2Int Size { get; private set; }
-
-    public void BuildCell(MazeCellInfo cellInfo)
-    {
+        var pattern = CreatePattern();
+        var builder = CreateBuilder();
+        pattern.Apply(builder);
+        builder.BuildMaze();
     }
 }
