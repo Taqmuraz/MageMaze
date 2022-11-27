@@ -8,6 +8,6 @@ public sealed class StandardMazeGenerator : MazeGenerator
     }
     protected override IMazePattern CreatePattern()
     {
-        return new EmptyMazePattern();
+        return new EllerMazePattern(0.5f);
     }
 }
